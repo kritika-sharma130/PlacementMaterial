@@ -35,8 +35,8 @@ public class DLL {
         return length==0;
         //This above line can also be written as head==null
     }
-    public void insertAtStart(){
-        ListNode newnode = new ListNode(7);
+    public void insertAtStart(int value){
+        ListNode newnode = new ListNode(value);
         if(isEmpty()){
             tail=newnode;
         }else {
@@ -44,8 +44,8 @@ public class DLL {
         }newnode.next=head;
         head=newnode;
     }
-    public void insertAtLast(){
-        ListNode newnode = new ListNode(9);
+    public void insertAtLast(int value){
+        ListNode newnode = new ListNode(value);
         if(isEmpty()){
             head=newnode;
         }
@@ -63,12 +63,21 @@ public class DLL {
         }
         System.out.print("null");
     }
+    public void displayBackward(){
+        ListNode temp=tail;
+        while (temp!=null){
+            System.out.print(temp.data+"----->");
+            temp=temp.previous;
+        }
+        System.out.print("null");
+
+    }
 
 
     public static void main(String[] args) {
     DLL dll = new DLL();
-    dll.insertAtStart();
-    dll.insertAtLast();
+    dll.insertAtStart(7);
+    dll.insertAtLast(9);
     dll.displayForward();
     }
 }
