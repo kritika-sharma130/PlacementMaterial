@@ -7,6 +7,8 @@
 
 package linkedlist;
 
+import java.util.NoSuchElementException;
+
 //DDL refers to a doubly linked list
 public class DLL {
     private ListNode head;
@@ -32,7 +34,7 @@ public class DLL {
     */
 
     public boolean isEmpty(){
-        return length==0;
+        return head==null;
         //This above line can also be written as head==null
     }
     public void insertAtStart(int value){
@@ -72,12 +74,44 @@ public class DLL {
         System.out.print("null");
 
     }
+    public ListNode deleteFirst() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        ListNode temp = head;
+        if (head == tail) {
+          tail=null;
+        }else{
+            head.next.previous=null;
+        }head=head.next;
+        temp.next=null;
+        return temp;
+    }
+    public ListNode deleteLast(){
+        if(isEmpty()){
+            throw new NoSuchElementException();
+        }
+        ListNode temp=tail;
+        if(head==tail){
+            head=null;
+        }
+        else{
+            tail.previous.next=null;
+        }
+        tail=tail.previous;
+        temp.previous=null;
+        return temp;
+    }
 
 
     public static void main(String[] args) {
     DLL dll = new DLL();
-    dll.insertAtStart(7);
-    dll.insertAtLast(9);
+    dll.insertAtStart(78);
+    dll.insertAtStart(9);
+    dll.insertAtStart(88);
+    dll.insertAtStart(91);
+    dll.deleteFirst();
+    dll.deleteLast();
     dll.displayForward();
     }
 }
