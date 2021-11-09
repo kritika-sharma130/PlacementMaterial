@@ -14,9 +14,9 @@ public class DLL {
     private int length;
 
     private class ListNode {
-        private final int data;
-        private ListNode head;
-        private ListNode tail;
+        private  int data;
+        private ListNode next;
+        private ListNode previous;
 
         public ListNode(int data) {
             this.data = data;
@@ -32,6 +32,15 @@ public class DLL {
     public boolean isEmpty(){
         return length==0;
         //This above line can also be written as head==null
+    }
+    public void insertAtStart(){
+        ListNode newnode = new ListNode(7);
+        if(isEmpty()){
+            tail=newnode;
+        }else {
+            head.previous = newnode;
+        }newnode.next=head;
+        head=newnode;
     }
 
     public static void main(String[] args) {
