@@ -24,11 +24,13 @@ public class DLL {
 
     }
 
-    public DLL(ListNode head, ListNode tail, int length) {
+    /*public DLL(ListNode head, ListNode tail, int length) {
         this.head = null;
         this.tail = null;
         this.length = 0;
     }
+    */
+
     public boolean isEmpty(){
         return length==0;
         //This above line can also be written as head==null
@@ -41,10 +43,32 @@ public class DLL {
             head.previous = newnode;
         }newnode.next=head;
         head=newnode;
-
+    }
+    public void insertAtLast(){
+        ListNode newnode = new ListNode(9);
+        if(isEmpty()){
+            head=newnode;
+        }
+        else{
+            tail.next=newnode;
+            newnode.previous=tail;
+        }
+        tail=newnode;
+    }
+    public void displayForward(){
+        ListNode temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+"--->");
+            temp=temp.next;
+        }
+        System.out.print("null");
     }
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+    DLL dll = new DLL();
+    dll.insertAtStart();
+    dll.insertAtLast();
+    dll.displayForward();
     }
 }
