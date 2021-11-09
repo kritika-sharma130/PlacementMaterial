@@ -41,6 +41,7 @@ public class DLL {
             head.previous = newnode;
         }newnode.next=head;
         head=newnode;
+
     }
 
     public static void main(String[] args) {
