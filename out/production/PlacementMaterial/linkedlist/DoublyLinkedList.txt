@@ -1,0 +1,4 @@
+A doubly linked list also known as a two way linked list
+In it we can navigate forward as well as backward
+A node in the singly linked list can only be deleted if we have a pointer to its previous node.
+A node in a doubly linked list can be deleted if we dont have a pointer to its previous node.
