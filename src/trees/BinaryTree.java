@@ -23,6 +23,31 @@ public class BinaryTree {
             this.right = null;
         }
     }
+    public void inOrder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data);
+        inOrder(root.right);
+    }
+    public void iterativeInorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode>stack=new Stack<>();
+        TreeNode temp=root;
+        while(!stack.isEmpty()||temp!=null){
+            if(temp!=null){
+                stack.push(temp);
+                temp=temp.left;
+            }else{
+                temp=stack.pop();
+                System.out.print(temp.data+" ");
+                temp=temp.right;
+            }
+        }
+    }
 
     public void PreOrderIterative(TreeNode root){
         if(root==null){
@@ -79,6 +104,7 @@ class Main {
         bt.createBinaryTree();
         bt.preOrder(BinaryTree.root);
         bt.PreOrderIterative(BinaryTree.root);
+        bt.inOrder(BinaryTree.root);
 
     }
 }
